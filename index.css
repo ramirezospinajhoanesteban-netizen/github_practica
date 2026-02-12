@@ -38,4 +38,38 @@ button {
     padding: 6px 12px;
     border-radius: 8px;
     cursor: pointer;
+  font-family: monospace;
+  background: #0f0f0f;
+  color: #00ffcc;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.app {
+  width: 420px;
+  background: #1a1a1a;
+  padding: 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+}
+
+.task {
+  background: #262626;
+  margin-top: 12px;
+  padding: 10px;
+  border-left: 4px solid #00ffcc;
+}
+
+.task.done {
+  background: #003d33;
+  text-decoration: line-through;
+}
+
+button {
+  background: #00ffcc;
+  border: none;
+  padding: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
