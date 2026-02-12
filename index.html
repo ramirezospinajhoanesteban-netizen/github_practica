@@ -1,36 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TaskBoard Pro</title>
-    <link rel="stylesheet" href="index.css">
-</head>
 <body>
+
     <section class="app">
+
         <header>
-            <h1>📝 TaskBoard Pro 😎😎</h1>
+            <h1>📋 TaskBoard Pro</h1>
+            <p>Organiza tus tareas fácilmente</p>
         </header>
 
-         <div class="creator">
-            <input type="text" id="newTask" placeholder="Nueva tarea...">
-            <button id="createTask">Crear la tarea</button>
-        </div>
+        <main>
 
-        <div class="controls">
-            <button data-filter="all">All</button>
-            <button data-filter="active">Active</button>
-            <button data-filter="done">Done</button>
-        </div>
+            <div class="creator">
+                <input type="text" id="newTask" placeholder="Escribe algo...">
+                <button id="createTask">Crear</button>
+            </div>
 
-        
-        <div id="tasksContainer"></div>
+            <div id="tasksContainer"></div>
+
+        </main>
 
         <footer>
-            <button id="toggleTheme">🌙 Tema</button>
+            <div class="controls">
+                <button data-filter="all">All</button>
+                <button data-filter="active">Active</button>
+                <button data-filter="done">Done</button>
+            </div>
         </footer>
-        </section>
+
     </section>
 
-        <script type="mode" src="index.js"></script>
+    <script src="app.js"></script>
 </body>
-</html> 
