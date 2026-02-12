@@ -1,6 +1,6 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fa;
+    font-family: Arial;
+    background: #f4f6f8;
     display: flex;
     justify-content: center;
     padding: 60px;
@@ -10,66 +10,25 @@ body {
     width: 450px;
     background: white;
     padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 12px;
 }
 
-.task {
-    background: #f0f2f5;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.task:hover {
-    transform: scale(1.02);
-}
-
-.task.done {
-    background: #d4edda;
-    text-decoration: line-through;
-}
-
-button {
-    background: #4a90e2;
-    border: none;
-    color: white;
-    padding: 6px 12px;
+li {
+    list-style: none;
+    background: #e9ecef;
+    padding: 10px;
+    margin-top: 8px;
     border-radius: 8px;
-    cursor: pointer;
-  font-family: monospace;
-  background: #0f0f0f;
-  color: #00ffcc;
-  display: flex;
-  justify-content: center;
-  padding: 50px;
 }
 
-.app {
-  width: 420px;
-  background: #1a1a1a;
-  padding: 20px;
-  border: 2px solid #00ffcc;
-  border-radius: 8px;
-}
-
-.task {
-  background: #262626;
-  margin-top: 12px;
-  padding: 10px;
-  border-left: 4px solid #00ffcc;
-}
-
-.task.done {
-  background: #003d33;
-  text-decoration: line-through;
+.done {
+    text-decoration: line-through;
+    background: #c3f7c3;
 }
 
 button {
-  background: #00ffcc;
-  border: none;
-  padding: 6px;
-  font-weight: bold;
-  cursor: pointer;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
 }
