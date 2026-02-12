@@ -1,4 +1,43 @@
-body{
-  background-color: #000;
-  color : white;
+body {
+  font-family: sans-serif;
+  background: linear-gradient(45deg, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.app {
+  background: white;
+  width: 420px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.creator {
+  display: flex;
+  gap: 8px;
+}
+
+.creator input {
+  flex: 1;
+  padding: 10px;
+}
+
+.task {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  background: #f1f1f1;
+}
+
+.task.done {
+  text-decoration: line-through;
+  background: #b8ffb8;
+}
+
+.dark-mode {
+  background: #121212;
+  color: white;
 }
