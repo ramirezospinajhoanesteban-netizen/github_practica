@@ -1,32 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskBoard A</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
-    <section class="app">
+<section class="app">
 
-        <header>
-            <h1>📋 TaskBoard Pro</h1>
-            <p>Organiza tus tareas fácilmente</p>
-        </header>
+    <header>
+        <h1>TaskBoard A</h1>
+    </header>
 
-        <main>
+    <div class="creator">
+        <input type="text" id="taskInput" placeholder="Agregar tarea">
+        <button id="addTaskBtn">Agregar</button>
+    </div>
 
-            <div class="creator">
-                <input type="text" id="newTask" placeholder="Escribe algo...">
-                <button id="createTask">Crear</button>
-            </div>
+    <div class="filters">
+        <button onclick="filterTasks('all')">Todas</button>
+        <button onclick="filterTasks('pending')">Pendientes</button>
+        <button onclick="filterTasks('done')">Hechas</button>
+    </div>
 
-            <div id="tasksContainer"></div>
+    <ul id="taskList"></ul>
 
-        </main>
+</section>
 
-        <footer>
-            <div class="controls">
-                <button data-filter="all">All</button>
-                <button data-filter="active">Active</button>
-                <button data-filter="done">Done</button>
-            </div>
-        </footer>
-
-    </section>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
+</html>
