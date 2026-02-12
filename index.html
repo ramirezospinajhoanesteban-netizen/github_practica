@@ -6,31 +6,26 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <section class="app">
-        <header>
-            <h1>📝 TaskBoard Pro 😎😎</h1>
-        </header>
 
-         <div class="creator">
-            <input type="text" id="newTask" placeholder="Nueva tarea...">
-            <button id="createTask">Crear la tarea</button>
-        </div>
+<section class="app">
 
-        <div class="controls">
-            <button data-filter="all">All</button>
-            <button data-filter="active">Active</button>
-            <button data-filter="done">Done</button>
-        </div>
+    <h1>TaskBoard</h1>
 
-        
-        <div id="tasksContainer"></div>
+    <div class="creator">
+        <input type="text" id="newTask" placeholder="Nueva tarea">
+        <button id="createTask">Agregar</button>
+    </div>
 
-        <footer>
-            <button id="toggleTheme">🌙 Tema</button>
-        </footer>
-        </section>
-    </section>
+    <div class="controls">
+        <button data-filter="all">Todas</button>
+        <button data-filter="active">Activas</button>
+        <button data-filter="done">Completadas</button>
+    </div>
 
-        <script type="mode" src="index.js"></script>
+    <div id="tasksContainer"></div>
+
+</section>
+
+<script src="app.js"></script>
 </body>
 </html> 
