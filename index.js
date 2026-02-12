@@ -57,3 +57,24 @@ function draw() {
         elements.container.appendChild(div);
     });
 }
+
+function toggleTask(id) {
+    state.tasks = state.tasks.map(task =>
+        task.id === id ? { ...task, done: !task.done } : task
+    );
+    draw();
+}
+
+function deleteTask(id) {
+    state.tasks = state.tasks.filter(task => task.id !== id);
+    draw();
+}
+
+function changeFilter(type) {
+    state.filter = type;
+    draw();
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
