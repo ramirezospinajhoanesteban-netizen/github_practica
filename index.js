@@ -1,9 +1,10 @@
 const button = document.createElement('button')
-button.innerText = 'click me'
-function handleclick(){
-    alert('clicked')
+button.innerText = 'Click me'
+
+function handleClick() {
+    alert('Clicked')
 }
 
-button.addEventListener('click', function(){
-    alert('clicked')
-})
+button.addEventListener('click', handleClick)
+
+document.body.appendChild(button)
