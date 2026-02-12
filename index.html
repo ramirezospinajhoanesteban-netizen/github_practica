@@ -11,6 +11,19 @@
             <h1>📝 TaskBoard Pro</h1>
         </header>
 
+        <div class="creator">
+            <input type="text" id="newTask" placeholder="Nueva tarea...">
+            <button id="createTask">Crear</button>
+        </div>
+        
+        <div class="controls">
+            <button data-filter="all">All</button>
+            <button data-filter="active">Active</button>
+            <button data-filter="done">Done</button>
+        </div>
+        
+        <div id="tasksContainer"></div>
+
         <script type="mode" src="index.js"></script>
 </body>
 </html> 
