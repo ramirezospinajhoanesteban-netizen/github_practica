@@ -63,6 +63,56 @@ function filterTasks(type) {
     renderTasks(type);
 }
 
-themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-});
+    elements.input.value = "";
+    draw();
+}
+
+function draw() {
+    elements.container.innerHTML = "";
+
+    const visibleTasks = state.tasks.filter(task => {
+        if (state.filter === "active") return !task.done;
+        if (state.filter === "done") return task.done;
+        return true;
+    });
+
+    visibleTasks.forEach(task => {
+        const div = document.createElement("div");
+        div.className = "task";
+        if (task.done) div.classList.add("done");
+
+        const span = document.createElement("span");
+        span.textContent = task.title;
+
+        span.addEventListener("click", () => toggleTask(task.id));
+
+        const remove = document.createElement("button");
+        remove.textContent = "Eliminar";
+        remove.onclick = () => deleteTask(task.id);
+
+        div.appendChild(span);
+        div.appendChild(remove);
+        elements.container.appendChild(div);
+    });
+}
+
+function toggleTask(id) {
+    state.tasks = state.tasks.map(task =>
+        task.id === id ? { ...task, done: !task.done } : task
+    );
+    draw();
+}
+
+function deleteTask(id) {
+    state.tasks = state.tasks.filter(task => task.id !== id);
+    draw();
+}
+
+function changeFilter(type) {
+    state.filter = type;
+    draw();
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
