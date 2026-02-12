@@ -1,4 +1,14 @@
-body{
-  background-color: #000;
-  color : white;
+body {
+    font-family: sans-serif;
+    background: linear-gradient(45deg, #74ebd5, #acb6e5);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.app {
+    background: white;
+    width: 420px;
+    padding: 20px;
+    border-radius: 12px;
 }
