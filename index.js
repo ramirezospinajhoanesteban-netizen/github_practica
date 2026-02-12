@@ -1,82 +1,41 @@
-const state = {
-    tasks: [],
-    filter: "all"
-};
+const input = document.getElementById("newTask");
+const btn = document.getElementById("createBtn");
+const container = document.getElementById("taskContainer");
 
-const elements = {
-    input: document.getElementById("newTask"),
-    createBtn: document.getElementById("createTask"),
-    container: document.getElementById("tasksContainer"),
-    filterButtons: document.querySelectorAll("[data-filter]"),
-    themeBtn: document.getElementById("toggleTheme")
-};
+let state = [];
 
-elements.createBtn.addEventListener("click", handleCreate);
-elements.filterButtons.forEach(btn =>
-    btn.addEventListener("click", () => changeFilter(btn.dataset.filter))
-);
-elements.themeBtn.addEventListener("click", toggleTheme);
+btn.addEventListener("click", createTask);
 
-function handleCreate() {
-    const value = elements.input.value.trim();
-    if (!value) return;
+function createTask() {
+    if (!input.value) return;
 
-    state.tasks.push({
+    state.push({
         id: crypto.randomUUID(),
-        title: value,
-        done: false
+        title: input.value,
+        completed: false
     });
 
-    elements.input.value = "";
-    draw();
+    input.value = "";
+    drawTasks();
 }
 
-function draw() {
-    elements.container.innerHTML = "";
+function drawTasks() {
+    container.innerHTML = "";
 
-    const visibleTasks = state.tasks.filter(task => {
-        if (state.filter === "active") return !task.done;
-        if (state.filter === "done") return task.done;
-        return true;
-    });
-
-    visibleTasks.forEach(task => {
+    state.forEach(task => {
         const div = document.createElement("div");
         div.className = "task";
-        if (task.done) div.classList.add("done");
+        div.textContent = task.title;
 
-        const span = document.createElement("span");
-        span.textContent = task.title;
+        if (task.completed) {
+            div.classList.add("completed");
+        }
 
-        span.addEventListener("click", () => toggleTask(task.id));
+        div.onclick = () => {
+            task.completed = !task.completed;
+            drawTasks();
+        };
 
-        const remove = document.createElement("button");
-        remove.textContent = "Eliminar";
-        remove.onclick = () => deleteTask(task.id);
-
-        div.appendChild(span);
-        div.appendChild(remove);
-        elements.container.appendChild(div);
+        container.appendChild(div);
     });
-}
-
-function toggleTask(id) {
-    state.tasks = state.tasks.map(task =>
-        task.id === id ? { ...task, done: !task.done } : task
-    );
-    draw();
-}
-
-function deleteTask(id) {
-    state.tasks = state.tasks.filter(task => task.id !== id);
-    draw();
-}
-
-function changeFilter(type) {
-    state.filter = type;
-    draw();
-}
-
-function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
 }
