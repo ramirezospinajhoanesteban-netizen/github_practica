@@ -1,4 +1,43 @@
 body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+}
+
+.app {
+    width: 450px;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.task {
+    background: #f0f2f5;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.task:hover {
+    transform: scale(1.02);
+}
+
+.task.done {
+    background: #d4edda;
+    text-decoration: line-through;
+}
+
+button {
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
   font-family: monospace;
   background: #0f0f0f;
   color: #00ffcc;
