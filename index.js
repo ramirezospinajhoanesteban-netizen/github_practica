@@ -1,52 +1,41 @@
-const input = document.getElementById("taskInput");
-const button = document.getElementById("addTaskBtn");
-const list = document.getElementById("taskList");
+const input = document.getElementById("newTask");
+const btn = document.getElementById("createBtn");
+const container = document.getElementById("taskContainer");
 
-let tasks = [];
+let state = [];
 
-button.addEventListener("click", addTask);
+btn.addEventListener("click", createTask);
 
-function addTask() {
-    if (!input.value.trim()) return;
+function createTask() {
+    if (!input.value) return;
 
-    tasks.push({
-        id: Date.now(),
-        text: input.value,
-        done: false
+    state.push({
+        id: crypto.randomUUID(),
+        title: input.value,
+        completed: false
     });
 
     input.value = "";
-    render();
+    drawTasks();
 }
 
-function render(filter = "all") {
-    list.innerHTML = "";
+function drawTasks() {
+    container.innerHTML = "";
 
-    let filtered = tasks;
+    state.forEach(task => {
+        const div = document.createElement("div");
+        div.className = "task";
+        div.textContent = task.title;
 
-    if (filter === "pending") {
-        filtered = tasks.filter(t => !t.done);
-    }
+        if (task.completed) {
+            div.classList.add("completed");
+        }
 
-    if (filter === "done") {
-        filtered = tasks.filter(t => t.done);
-    }
-
-    filtered.forEach(task => {
-        const li = document.createElement("li");
-        li.textContent = task.text;
-
-        if (task.done) li.classList.add("done");
-
-        li.onclick = () => {
-            task.done = !task.done;
-            render(filter);
+        div.onclick = () => {
+            task.completed = !task.completed;
+            drawTasks();
         };
 
-        list.appendChild(li);
+        container.appendChild(div);
     });
-}
-
-function filterTasks(type) {
-    render(type);
 }
